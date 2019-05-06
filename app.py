@@ -6,6 +6,10 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
+@app.route("/directories")
+def directories():
+    pass
+
 @app.route("/search")
 def search():
     pass
