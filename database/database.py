@@ -51,3 +51,7 @@ def all_directories_db():
     db.execute("SELECT directory FROM directories")
     directories_list = db.fetchall()
     return directories_list
+
+def database_exists():
+    if(os.path.exists(DATABASE) == False):
+        create_database()
