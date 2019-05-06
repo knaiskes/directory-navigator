@@ -27,5 +27,11 @@ def add_directory():
     add_directory_db(new_directory)
     return redirect(url_for("directories"))
 
+@app.route("/delete_directory", methods=["POST"])
+def delete_directory():
+    delete_dir = request.form["deleteDir"]
+    delete_directory_db(delete_dir)
+    return redirect(url_for("directories"))
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)

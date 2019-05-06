@@ -11,10 +11,20 @@
         <form action="{{url_for("add_directory")}}" method="POST">
             <p>
             <input type="text" placeholder="Directory" name="newDirectory"
-                                                          value="{{request.form.newDirectory}}">
+                                                       value="{{request.form.newDirectory}}">
             </p>
             <button class="button" value="submit"> Submit </button>
         </form>
+
+        <h1> Delete directory </h1>
+        <form action="{{url_for("delete_directory")}}" method="POST">
+            <p>
+            <input type="text" placeholder="Directory" name="deleteDir"
+                                                       value="{{request.form.deleteDir}}">
+            </p>
+            <button class="button" value="submit"> Submit </button>
+        </form>
+
 
     </body>
 </html>
