@@ -1,6 +1,9 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for, redirect
+from database.database import *
 
 app = Flask(__name__)
+
+database_exists()
 
 @app.route("/")
 def index():
@@ -8,7 +11,7 @@ def index():
 
 @app.route("/directories")
 def directories():
-    pass
+    return render_template("directories.html")
 
 @app.route("/search")
 def search():
@@ -17,6 +20,12 @@ def search():
 @app.route("/results")
 def results():
     pass
+
+@app.route("/add_directory", methods=["POST"])
+def add_directory():
+    new_directory = request.form["newDirectory"]
+    add_directory_db(new_directory)
+    return redirect(url_for("directories"))
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)
