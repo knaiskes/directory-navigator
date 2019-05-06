@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+
+        <title>Index</title>
+    </head>
+    <body>
+        <center><h3> index </h3></center>
+        {% for file in files %}
+        <button type="submit" value={{file}} name="filename">{{file}}</button>
+            {% endfor %}
+    </body>
+</html>
