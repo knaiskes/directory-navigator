@@ -11,7 +11,8 @@ def index():
 
 @app.route("/directories")
 def directories():
-    return render_template("directories.html")
+    all_directories = all_directories_db()
+    return render_template("directories.html", all_directories=all_directories)
 
 @app.route("/search")
 def search():
