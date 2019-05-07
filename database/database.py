@@ -49,8 +49,8 @@ def all_directories_db():
     db = conn.cursor()
 
     db.execute("SELECT directory FROM directories")
-    directories_list = db.fetchall()
-    return directories_list
+    rows = [item[0] for item in db.fetchall()]
+    return rows
 
 def database_exists():
     if(os.path.exists(DATABASE) == False):

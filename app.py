@@ -20,7 +20,16 @@ def search():
 
 @app.route("/results")
 def results():
-    pass
+    from os import listdir
+    list_of_files = []
+    all_directories = all_directories_db()
+
+    for directory in all_directories:
+        files = listdir(directory)
+        found_files = [ f for f in files]
+        list_of_files.append(found_files)
+
+    return render_template("results.html", list_of_files=list_of_files)
 
 @app.route("/add_directory", methods=["POST"])
 def add_directory():
