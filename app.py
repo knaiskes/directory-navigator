@@ -14,10 +14,6 @@ def directories():
     all_directories = all_directories_db()
     return render_template("directories.html", all_directories=all_directories)
 
-@app.route("/search")
-def search():
-    pass
-
 @app.route("/results")
 def results():
     from os import listdir
