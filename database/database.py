@@ -1,7 +1,11 @@
 import sqlite3
 import os.path
+import platform
 
-DATABASE = "database/directories.db"
+if(platform.system() == "Linux"):
+    DATABASE = "database/directories.db"
+elif(platform.system() == "Windows"):
+    DATABASE = r"C:\\database\\directories.db"
 
 def create_database():
     conn = sqlite3.connect(DATABASE)
