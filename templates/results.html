@@ -6,9 +6,22 @@
         <title>Results</title>
     </head>
     <body>
-        {% for file in list_of_files %}
-        <h4>{{file}}</h4>
-        {% endfor %}
+        <table>
+            <tr>
+                <th>Files</th>
+            </tr>
+            <tr>
+                {% for file in list_of_files %}
+                <tr>
+                    <td>
+                    <form action="{{url_for("open_file")}}" method="POST">
+                        <button type="submit" value="{{file}}" name="filename">
+                            {{file}} </button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tr>
+        </table>
     </body>
 </html>
 

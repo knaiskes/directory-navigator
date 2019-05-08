@@ -22,8 +22,9 @@ def results():
 
     for directory in all_directories:
         files = listdir(directory)
-        found_files = [ f for f in files]
-        list_of_files.append(found_files)
+        for f in files:
+            path = directory + f
+            list_of_files.append(path)
 
     return render_template("results.html", list_of_files=list_of_files)
 
@@ -38,6 +39,11 @@ def delete_directory():
     delete_dir = request.form["deleteDir"]
     delete_directory_db(delete_dir)
     return redirect(url_for("directories"))
+
+@app.route("/open_file", methods=["POST"])
+def open_file():
+    print(request.form["filename"])
+    return redirect(url_for("results"))
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)
