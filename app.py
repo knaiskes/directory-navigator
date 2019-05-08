@@ -39,5 +39,10 @@ def delete_directory():
     delete_directory_db(delete_dir)
     return redirect(url_for("directories"))
 
+@app.route("/open_file", methods=["POST"])
+def open_file():
+    print(request.form["filename"])
+    return redirect(url_for("results"))
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)
