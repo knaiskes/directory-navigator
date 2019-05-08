@@ -22,8 +22,9 @@ def results():
 
     for directory in all_directories:
         files = listdir(directory)
-        found_files = [ f for f in files]
-        list_of_files.append(found_files)
+        for f in files:
+            path = directory + f
+            list_of_files.append(path)
 
     return render_template("results.html", list_of_files=list_of_files)
 
