@@ -5,6 +5,17 @@ app = Flask(__name__)
 
 database_exists()
 
+def open_file_in_path(path):
+    import platform
+    if(platform.system() == "Linux"):
+        from subprocess import call
+        call((("xdg-open", path)))
+    elif(platform.system() == "Windows"):
+        from os import startfile
+        startfile(path)
+    else:
+        print("This operation is not supported in this operating system")
+
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -42,7 +53,8 @@ def delete_directory():
 
 @app.route("/open_file", methods=["POST"])
 def open_file():
-    print(request.form["filename"])
+    filename = request.form["filename"]
+    open_file_in_path(filename)
     return redirect(url_for("results"))
 
 if __name__ == "__main__":
