@@ -28,13 +28,15 @@ def directories():
 @app.route("/results")
 def results():
     from os import listdir
+    from os.path import join
     list_of_files = []
     all_directories = all_directories_db()
 
     for directory in all_directories:
         files = listdir(directory)
         for f in files:
-            path = directory + f
+            path = join(directory, f)
+            #path = directory + f
             list_of_files.append(path)
 
     return render_template("results.html", list_of_files=list_of_files)
