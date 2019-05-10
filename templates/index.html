@@ -7,9 +7,12 @@
         {% include "menu.html" %}
     </head>
     <body>
-        <center><h3> index </h3></center>
-        {% for file in files %}
-        <button type="submit" value={{file}} name="filename">{{file}}</button>
-            {% endfor %}
+        <div id="options">
+            <h1>Welcome to directory navigator</h1>
+            <ul>
+                <li><a href="directories">Go to directories page</a></li>
+                <li><a href="results">Go to results page</a></li>
+            </ul>
+        </div>
     </body>
 </html>
