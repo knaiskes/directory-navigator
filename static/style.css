@@ -5,14 +5,12 @@ body {
 }
 
 #menu ul {
-
     background-color: #264356;
     margin:0;
     padding:0;
     position: relative;
     list-style-type: none;
     overflow: hidden;
-
 }
 
 #menu li {
@@ -31,4 +29,38 @@ body {
 
 #menu a:hover {
     color: #F6F6F6;
+}
+
+#options ul {
+    background-color: #C0C5CE;
+    margin:0;
+    padding:0;
+    position: relative;
+    list-style-type: none;
+    overflow: hidden;
+    width: 50%;
+    margin: auto;
+}
+
+#options li {
+    list-style-type: none;
+}
+
+#options a {
+    color: #000000;
+    display: block;
+    text-align: center;
+    padding: 10px 10px;
+    width: 100%;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#options a:hover {
+    color: #323232;
+}
+
+#options h1 {
+    text-align: center;
 }
