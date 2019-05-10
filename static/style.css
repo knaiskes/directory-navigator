@@ -59,6 +59,7 @@ body {
 
 #options a:hover {
     color: #323232;
+    text-decoration: underLine;
 }
 
 #options h1 {

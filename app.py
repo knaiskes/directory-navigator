@@ -53,6 +53,23 @@ def delete_directory():
     delete_directory_db(delete_dir)
     return redirect(url_for("directories"))
 
+@app.route("/favorites")
+def favorites():
+    favorite_files_list = all_favorites_db()
+    return render_template("favorites.html", favorite_files_list=favorite_files_list)
+
+@app.route("/add_favorite", methods=["POST"])
+def add_favorite():
+    new_filename = request.form["newFavoriteFile"]
+    add_favorite_db(new_filename)
+    return redirect(url_for("favorites"))
+
+@app.route("/delete_favorite", methods=["POST"])
+def delete_favorite():
+    delete_favorite = request.form["delFavorite"]
+    delete_filename_db(delete_favorite)
+    return redirect(url_for("favorites"))
+
 @app.route("/open_file", methods=["POST"])
 def open_file():
     filename = request.form["filename"]

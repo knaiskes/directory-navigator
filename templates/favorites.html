@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+        <title>Favorite Files</title>
+        {% include "menu.html" %}
+    </head>
+    <body>
+        <h1>Favorite </h1>
+        <table>
+            <tr>
+                <th>Files</th>
+            </tr>
+            <tr>
+                {% for file in favorite_files_list %}
+                <tr>
+                <td>{{file}}</td>
+                </tr>
+                {% endfor %}
+            </tr>
+        </table>
+
+        <h1> Add a favorite file </h1>
+
+        <form action="{{url_for("add_favorite")}}" method="POST">
+            <p>
+            <input type="text" placeholder="Filename" name="newFavoriteFile"
+                                                       value="{{request.form.newFavoriteFile}}">
+            </p>
+            <button class="button" value="submit"> Submit </button>
+        </form>
+
+        <h1> Delete directory </h1>
+        <form action="{{url_for("delete_favorite")}}" method="POST">
+            <p>
+            <input type="text" placeholder="Directory" name="delFavorite"
+                                                       value="{{request.form.delFavorite}}">
+            </p>
+            <button class="button" value="submit"> Submit </button>
+        </form>
+
+
+    </body>
+</html>
