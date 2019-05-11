@@ -74,7 +74,7 @@ def delete_favorite():
 def open_file():
     filename = request.form["filename"]
     open_file_in_path(filename)
-    return redirect(url_for("results"))
+    return redirect(request.referrer)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)
