@@ -16,7 +16,12 @@
             <tr>
                 {% for directory in all_directories %}
                 <tr>
-                <td>{{directory}}</td>
+                <td>{{directory}}
+                    <form action="{{url_for("delete_directory")}}" method="POST">
+                        <button type="submit" name="deleteDir" value="{{directory}}">
+                            Remove</button>
+                    </form>
+                </td>
                 </tr>
                 {% endfor %}
             </tr>
@@ -31,16 +36,5 @@
             </p>
             <button class="button" value="submit"> Submit </button>
         </form>
-
-        <h1> Delete directory </h1>
-        <form action="{{url_for("delete_directory")}}" method="POST">
-            <p>
-            <input type="text" placeholder="Directory" name="deleteDir"
-                                                       value="{{request.form.deleteDir}}">
-            </p>
-            <button class="button" value="submit"> Submit </button>
-        </form>
-
-
     </body>
 </html>
