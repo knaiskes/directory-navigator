@@ -33,11 +33,17 @@ def results():
     all_directories = all_directories_db()
 
     for directory in all_directories:
-        files = listdir(directory)
+        try:
+            files = listdir(directory)
+        except OSError:
+            print("Could not open directory!", directory)
+    try:
         for f in files:
             path = join(directory, f)
             #path = directory + f
             list_of_files.append(path)
+    except OSError:
+        print("Could not open directory!")
 
     return render_template("results.html", list_of_files=list_of_files)
 
@@ -75,7 +81,10 @@ def delete_favorite():
 @app.route("/open_file", methods=["POST"])
 def open_file():
     filename = request.form["filename"]
-    open_file_in_path(filename)
+    try:
+        open_file_in_path(filename)
+    except OSError:
+        print("Could not open file!")
     return redirect(request.referrer)
 
 if __name__ == "__main__":
