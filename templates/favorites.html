@@ -15,10 +15,15 @@
             <tr>
                 {% for file in favorite_files_list %}
                 <tr>
-                    <td>
+                    <td>{{file}}
                         <form action="{{url_for("open_file")}}" method="POST">
                             <button type="submit" value="{{file}}" name="filename">
-                                {{file}} </button>
+                                Open</button>
+                        </form>
+                        <form action="{{url_for("delete_favorite")}}" method="POST">
+                            <button type="submit" value="{{file}}" name="delFavorite">
+                                Remove </button>
+                        </form>
                     </td>
                     </td>
                 </tr>
@@ -35,16 +40,5 @@
             </p>
             <button class="button" value="submit"> Submit </button>
         </form>
-
-        <h1> Delete a favorite file </h1>
-        <form action="{{url_for("delete_favorite")}}" method="POST">
-            <p>
-            <input type="text" placeholder="Directory" name="delFavorite"
-                                                       value="{{request.form.delFavorite}}">
-            </p>
-            <button class="button" value="submit"> Submit </button>
-        </form>
-
-
     </body>
 </html>
