@@ -43,8 +43,10 @@ def results():
 
 @app.route("/add_directory", methods=["POST"])
 def add_directory():
+    from os.path import isdir
     new_directory = request.form["newDirectory"]
-    add_directory_db(new_directory)
+    if(isdir(new_directory) == True):
+        add_directory_db(new_directory)
     return redirect(url_for("directories"))
 
 @app.route("/delete_directory", methods=["POST"])
