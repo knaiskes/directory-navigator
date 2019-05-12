@@ -2,12 +2,24 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="/static/style.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+        <script src="/static/js/script.js"></script>
         <title>Directories</title>
         {% include "menu.html" %}
     </head>
     <body>
-
+        <button id="displayFormButton" onclick="hideForm('add_directory')">
+        Add directory</button>
+        <div id="add_directory">
+            <h3> Add new directory</h3>
+            <form action="{{url_for("add_directory")}}" method="POST">
+                <p>
+                <input type="text" placeholder="Directory" name="newDirectory"
+                                                           value="{{request.form.newDirectory}}">
+                </p>
+                <button class="button" value="submit"> Submit </button>
+            </form>
+        </div>
         <h1>Available directories</h1>
         <table>
             <tr>
@@ -16,25 +28,15 @@
             <tr>
                 {% for directory in all_directories %}
                 <tr>
-                <td>{{directory}}
-                    <form action="{{url_for("delete_directory")}}" method="POST">
-                        <button type="submit" name="deleteDir" value="{{directory}}">
-                            Remove</button>
-                    </form>
-                </td>
+                    <td>{{directory}}
+                        <form action="{{url_for("delete_directory")}}" method="POST">
+                            <button type="submit" name="deleteDir" value="{{directory}}">
+                                Remove</button>
+                        </form>
+                    </td>
                 </tr>
                 {% endfor %}
             </tr>
         </table>
-
-        <h1> Add directory </h1>
-
-        <form action="{{url_for("add_directory")}}" method="POST">
-            <p>
-            <input type="text" placeholder="Directory" name="newDirectory"
-                                                       value="{{request.form.newDirectory}}">
-            </p>
-            <button class="button" value="submit"> Submit </button>
-        </form>
     </body>
 </html>
