@@ -25,8 +25,8 @@ def directories():
     all_directories = all_directories_db()
     return render_template("directories.html", all_directories=all_directories)
 
-@app.route("/results")
-def results():
+@app.route("/files")
+def files():
     from os import listdir
     from os.path import join
     list_of_files = []
@@ -45,7 +45,7 @@ def results():
     except OSError:
         print("Could not open directory!")
 
-    return render_template("results.html", list_of_files=list_of_files)
+    return render_template("files.html", list_of_files=list_of_files)
 
 @app.route("/add_directory", methods=["POST"])
 def add_directory():

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+        <title>Results</title>
+        {% include "menu.html" %}
+    </head>
+    <body>
+        <div id="files-table">
+            <table>
+                <tr>
+                    <th>Files</th>
+                </tr>
+                <tr>
+                    {% for file in list_of_files %}
+                    <tr>
+                        <td>
+                            <form action="{{url_for("open_file")}}" method="POST">
+                                <button type="submit" value="{{file}}" name="filename">
+                                    {{file}} </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
+
