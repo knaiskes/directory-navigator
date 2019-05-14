@@ -62,16 +62,13 @@ body {
     text-decoration: underLine;
 }
 
-#options h1 {
-    text-align: center;
-}
+#options h1 { text-align: center; }
 
 #add_directory {
     width: 50%;
     margin: 0 500px;
     margin-bottom: 20px;
     background-color: #FBFBFB;
-    border: 1px solid #F7F7F7;
     font-size: 20px;
     display: none;
 }
@@ -115,4 +112,34 @@ body {
     display: inline-block;
     font-size: 18px;
     font-weight: bold;
+}
+
+#directories-list { margin-top: 50px; }
+
+#directories-list table { margin: 0 auto; }
+
+#directories-list td, th {
+    font-weight: bold;
+    font-size: 18px;
+    border: 1px solid black;
+    text-align: center;
+    width: 50%;
+    padding: 15px;
+}
+
+#directories-list tr:nth-child(even) { background-color: #EEEEEE; }
+
+#directories-list button {
+    background-color: #FF0000;
+    margin: 20px 0 0;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 20%;
 }

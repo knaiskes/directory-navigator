@@ -9,7 +9,7 @@
     </head>
     <body>
         <button id="displayFormButton" onclick="hideForm('add_directory')">
-        Add directory</button>
+            Add directory</button>
         <div id="add_directory">
             <h3> Add new directory</h3>
             <form action="{{url_for("add_directory")}}" method="POST">
@@ -20,23 +20,24 @@
                 <button class="button" value="submit"> Submit </button>
             </form>
         </div>
-        <h1>Available directories</h1>
-        <table>
-            <tr>
-                <th>Directories</th>
-            </tr>
-            <tr>
-                {% for directory in all_directories %}
+        <div id="directories-list">
+            <table>
                 <tr>
-                    <td>{{directory}}
-                        <form action="{{url_for("delete_directory")}}" method="POST">
-                            <button type="submit" name="deleteDir" value="{{directory}}">
-                                Remove</button>
-                        </form>
-                    </td>
+                    <th>Directories List</th>
                 </tr>
-                {% endfor %}
-            </tr>
-        </table>
+                <tr>
+                    {% for directory in all_directories %}
+                    <tr>
+                        <td>{{directory}}
+                            <form action="{{url_for("delete_directory")}}" method="POST">
+                                <button type="submit" name="deleteDir" value="{{directory}}">
+                                    Remove</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tr>
+            </table>
+        </div>
     </body>
 </html>
