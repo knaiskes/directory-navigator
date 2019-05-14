@@ -143,3 +143,18 @@ body {
     cursor: pointer;
     width: 20%;
 }
+
+#files-table { margin-top: 50px; }
+
+#files-table table { margin: 0 auto; }
+
+#files-table td, th {
+    font-weight: bold;
+    font-size: 18px;
+    border: 1px solid black;
+    text-align: center;
+    width: 50%;
+    padding: 15px;
+}
+
+#files-table tr:nth-child(even) { background-color: #EEEEEE; }
