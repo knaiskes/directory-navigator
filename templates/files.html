@@ -19,6 +19,11 @@
                             <form action="{{url_for("open_file")}}" method="POST">
                                 <button type="submit" value="{{file}}" name="filename">
                                     {{file}} </button>
+                            </form>
+                            <form action="{{url_for("add_favorite")}}" method="POST">
+                                <button type="submit" name="newFavoriteFile"
+                                    value="{{file}}">&#9733;</button>
+                            </form>
                         </td>
                     </tr>
                     {% endfor %}
