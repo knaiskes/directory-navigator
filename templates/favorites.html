@@ -3,42 +3,47 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+        <script src="/static/js/script.js"></script>
         <title>Favorite Files</title>
         {% include "menu.html" %}
     </head>
     <body>
-        <h1>Favorite </h1>
-        <table>
-            <tr>
-                <th>Files</th>
-            </tr>
-            <tr>
-                {% for file in favorite_files_list %}
+        <button id="displayFormButton" onclick="hideForm('add_directory')">
+            Add directory</button>
+        <div id="add_directory">
+            <h1>Add file in favorites list </h1>
+            <form action="{{url_for("add_favorite")}}" method="POST">
+                <p>
+                <input type="text" placeholder="Path" name="newFavoriteFile"
+                                                          value="{{request.form.newFavoriteFile}}">
+                </p>
+                <button class="button" value="submit"> Submit </button>
+            </form>
+        </div>
+        <div id="files-table">
+            <center><h1>Favorites List</h1></center>
+            <table>
                 <tr>
-                    <td>{{file}}
-                        <form action="{{url_for("open_file")}}" method="POST">
-                            <button type="submit" value="{{file}}" name="filename">
-                                Open</button>
-                        </form>
-                        <form action="{{url_for("delete_favorite")}}" method="POST">
-                            <button type="submit" value="{{file}}" name="delFavorite">
-                                Remove </button>
-                        </form>
-                    </td>
-                    </td>
+                    <th>Files</th>
                 </tr>
-                {% endfor %}
-            </tr>
-        </table>
-
-        <h1> Add a favorite file </h1>
-
-        <form action="{{url_for("add_favorite")}}" method="POST">
-            <p>
-            <input type="text" placeholder="Filename" name="newFavoriteFile"
-                                                      value="{{request.form.newFavoriteFile}}">
-            </p>
-            <button class="button" value="submit"> Submit </button>
-        </form>
+                <tr>
+                    {% for file in favorite_files_list %}
+                    <tr>
+                        <td>{{file}}
+                            <form action="{{url_for("open_file")}}" method="POST">
+                                <button type="submit" value="{{file}}" name="filename">
+                                    Open</button>
+                            </form>
+                            <form action="{{url_for("delete_favorite")}}" method="POST">
+                                <button type="submit" value="{{file}}" name="delFavorite">
+                                    Remove </button>
+                            </form>
+                        </td>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tr>
+            </table>
+        </div>
     </body>
 </html>
