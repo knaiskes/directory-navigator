@@ -17,10 +17,6 @@ def open_file_in_path(path):
         print("This operation is not supported in this operating system")
 
 @app.route("/")
-def index():
-    return render_template("index.html")
-
-@app.route("/directories")
 def directories():
     all_directories = all_directories_db()
     return render_template("directories.html", all_directories=all_directories)
