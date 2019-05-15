@@ -21,9 +21,16 @@
                                     {{file}} </button>
                             </form>
                             <form action="{{url_for("add_favorite")}}" method="POST">
+                                {% if file_is_in_favorites(file) %}
                                 <button type="submit" name="newFavoriteFile"
-                                    value="{{file}}">&#9733;</button>
+                                                      value="{{file}}">
+                                    <span style="color:#E59600">&#9733;</span>
+                                </button>
+                                {% else %}
+                                <button type="submit" name="newFavoriteFile"
+                                                      value="{{file}}">&#9733;</button>
                             </form>
+                            {% endif %}
                         </td>
                     </tr>
                     {% endfor %}
