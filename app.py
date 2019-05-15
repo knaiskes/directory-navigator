@@ -69,7 +69,9 @@ def favorites():
 @app.route("/add_favorite", methods=["POST"])
 def add_favorite():
     new_filename = request.form["newFavoriteFile"]
-    add_favorite_db(new_filename)
+    if(file_is_in_favorites(new_filename) == False):
+        add_favorite_db(new_filename)
+    # else print msg
     return redirect(request.referrer)
 
 @app.route("/delete_favorite", methods=["POST"])

@@ -98,6 +98,18 @@ def all_favorites_db():
     rows = [item[0] for item in db.fetchall()]
     return rows
 
+def file_is_in_favorites(filename):
+    conn = sqlite3.connect(DATABASE)
+    db = conn.cursor()
+
+    db.execute("SELECT filename FROM favorites WHERE filename=?", (filename,))
+    exists = db.fetchone()
+
+    if(exists is not None):
+        return True
+    else:
+        return False
+
 def database_exists():
     if(os.path.exists(DATABASE) == False):
         create_database()
