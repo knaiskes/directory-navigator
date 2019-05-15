@@ -45,7 +45,8 @@ def files():
     except OSError:
         print("Could not open directory!")
 
-    return render_template("files.html", list_of_files=list_of_files)
+    return render_template("files.html", list_of_files=list_of_files,
+            file_is_in_favorites=file_is_in_favorites)
 
 @app.route("/add_directory", methods=["POST"])
 def add_directory():
