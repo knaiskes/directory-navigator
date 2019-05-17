@@ -8,8 +8,6 @@
         {% include "menu.html" %}
     </head>
     <body>
-        <button id="displayFormButton" onclick="hideForm('add_directory')">
-            Add directory</button>
         <div id="add_directory">
             <h1>Add file in favorites list </h1>
             <form action="{{url_for("add_favorite")}}" method="POST">
@@ -24,7 +22,12 @@
             <center><h1>Favorites List</h1></center>
             <table>
                 <tr>
-                    <th>Files</th>
+                    <th>Files
+                        <div id="addComponentButton">
+                        <button onclick="hideForm('add_directory')">&#10010;</button>
+                        </div>
+                    </th>
+                    </th>
                 </tr>
                 <tr>
                     {% for file in favorite_files_list %}

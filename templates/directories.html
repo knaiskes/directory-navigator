@@ -8,8 +8,6 @@
         {% include "menu.html" %}
     </head>
     <body>
-        <button id="displayFormButton" onclick="hideForm('add_directory')">
-            Add directory</button>
         <div id="add_directory">
             <h3> Add new directory</h3>
             <form action="{{url_for("add_directory")}}" method="POST">
@@ -23,7 +21,11 @@
         <div id="directories-list">
             <table>
                 <tr>
-                    <th>Directories List</th>
+                    <th>Directories List
+                        <div id="addComponentButton">
+                        <button onclick="hideForm('add_directory')">&#10010;</button>
+                        </div>
+                    </th>
                 </tr>
                 <tr>
                     {% for directory in all_directories %}

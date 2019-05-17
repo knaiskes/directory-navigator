@@ -125,3 +125,15 @@ body {
 }
 
 #files-table tr:nth-child(even) { background-color: #EEEEEE; }
+
+#addComponentButton button {
+    background-color: green;
+    color: white;
+    font-size: 15px;
+    border: none;
+    float: right;
+}
+
+#addComponentButton button:hover {
+    font-size: 20px;
+}
