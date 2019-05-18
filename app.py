@@ -31,16 +31,15 @@ def files():
     for directory in all_directories:
         try:
             files = listdir(directory)
+            try:
+                for f in files:
+                    path = join(directory, f)
+                    #path = directory + f
+                    list_of_files.append(path)
+            except OSError:
+                print("Could not open directory!")
         except OSError:
             print("Could not open directory!", directory)
-    try:
-        for f in files:
-            path = join(directory, f)
-            #path = directory + f
-            list_of_files.append(path)
-    except OSError:
-        print("Could not open directory!")
-
     return render_template("files.html", list_of_files=list_of_files,
             file_is_in_favorites=file_is_in_favorites)
 
