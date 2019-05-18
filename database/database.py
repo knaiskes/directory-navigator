@@ -5,7 +5,7 @@ import platform
 if(platform.system() == "Linux"):
     DATABASE = "database/directories.db"
 elif(platform.system() == "Windows"):
-    DATABASE = r"C:\\database\\directories.db"
+    DATABASE = r"C:\Users\user\Desktop\directory-navigator-master\directory-navigator-master\database\directories.db"
 
 def create_database():
     conn = sqlite3.connect(DATABASE)
