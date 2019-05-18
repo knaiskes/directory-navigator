@@ -25,3 +25,5 @@ $ venv\Scripts\activate
 $ pip install -r requirements.txt
 $ python app.py
 ```
+
+![project](https://user-images.githubusercontent.com/6069054/57968075-9a15e380-796e-11e9-84eb-13214ebe96d5.gif)
