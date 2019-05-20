@@ -1,4 +1,6 @@
 ## directory-navigator
+Navigate your most commonly used directories through your beloved Web browser and open any file with system default program.
+Compatible with GNU/Linux and Windows and with all moderen Web browsers.
 
 ### Setup
 
